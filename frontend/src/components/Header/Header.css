@@ -40,4 +40,10 @@
   .header-contents p {
     display: none;
   }
+  .header-contents {
+    gap: 1.1vw;
+    max-width: 90%;
+    bottom: 5%;
+    left: 3vw;
+  }
 }
