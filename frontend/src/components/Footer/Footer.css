@@ -50,3 +50,10 @@
 .footer-content-left p {
   line-height: 1.5;
 }
+
+@media screen and (max-width: 768px) {
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -24,7 +24,7 @@
 }
 .header-contents p {
   color: white;
-  font-size: 1vw;
+  font-size: 1.1vw;
 }
 .header-contents button {
   border: none;
@@ -34,4 +34,10 @@
   background-color: white;
   font-size: max(1vw, 13px);
   border-radius: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .header-contents p {
+    display: none;
+  }
 }

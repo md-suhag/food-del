@@ -15,7 +15,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
   text-align: center;
   margin: 20px 0;
   overflow-x: scroll;
@@ -45,4 +45,9 @@
 .explore-menu-list-item .active {
   border: 4px solid tomato;
   padding: 2px;
+}
+@media screen and (max-width: 768px) {
+  .explore-menu-text {
+    max-width: 100%;
+  }
 }

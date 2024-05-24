@@ -16,7 +16,7 @@
 .navbar-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 .navbar-right button {
   background: transparent;
@@ -45,4 +45,16 @@
 .active {
   border-bottom: 2px solid tomato;
   padding-bottom: 2px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar-menu {
+    display: none;
+  }
+  .navbar .logo {
+    width: 80px;
+  }
+  .navbar-right button {
+    padding: 10px 15px;
+  }
 }
