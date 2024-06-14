@@ -13,9 +13,9 @@ function Navbar({ setShowLogin }) {
     setToken("");
     navigate("/");
   };
-  useEffect(() => {
-    console.log(token);
-  }, [token]);
+  // useEffect(() => {
+  //   console.log(token);
+  // }, [token]);
 
   return (
     <div className="navbar">
