@@ -11,7 +11,7 @@ const foodRouter = express.Router();
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "/tmp"); // Use temporary directory
+    cb(null, "tmp"); // Use temporary directory
   },
   filename: (req, file, cb) => {
     return cb(null, `${Date.now()}${file.originalname}`);
