@@ -10,42 +10,7 @@ dotenv.config();
 // app config
 const app = express();
 const port = process.env.PORT || 4000;
-
-// middleware
-// const corsConfig = {
-//   origin: "*",
-//   credentials: true,
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-// };
-// app.options("*", cors(corsConfig));
-// app.use(express.json());
-
-// app.use(cors(corsConfig));
-
-const allowedOrigins = [
-  "https://food-del-admin-two.vercel.app",
-  "https://food-del-opal.vercel.app",
-];
-
-const corsConfig = {
-  origin: function (origin, callback) {
-    // Check if the origin is in the allowedOrigins array
-    if (allowedOrigins.includes(origin) || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
-
-// Handle preflight requests
-app.options("*", cors(corsConfig));
-
-// Apply CORS middleware
-app.use(cors(corsConfig));
+app.use(cors());
 
 app.use(
   fileUpload({
