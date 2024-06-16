@@ -1,35 +1,35 @@
 import foodModel from "../models/food.model.js";
 import fs from "fs";
-// import { v2 as cloudinary } from "cloudinary";
+import { v2 as cloudinary } from "cloudinary";
+import dotenv from "dotenv";
+dotenv.config();
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 const addFood = async (req, res) => {
-  // let file = req.files.photo;
-  // cloudinary.uploader.upload(file, tempFilePath, (err, result) => {
-  //   console.log(result);
-  // });
-  const food = new foodModel({
-    name: req.body.name,
-    description: req.body.description,
-    price: req.body.price,
-    category: req.body.category,
-    image: req.file.path,
+  // console.log(req.body);
+  let file = req.files.image;
+  cloudinary.uploader.upload(file.tempFilePath, async (err, result) => {
+    // console.log(result);
+    const food = new foodModel({
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      category: req.body.category,
+      image: result.url,
+    });
+    try {
+      await food.save();
+      res.json({ success: true, message: "food Added" });
+    } catch (error) {
+      console.log(error);
+      res.json({ success: false, message: "error" });
+    }
   });
-  try {
-    await food.save();
-    res.json({ success: true, message: "food Added" });
-  } catch (error) {
-    console.log(error);
-    res.json({ success: false, message: "error" });
-  }
-
-  // if (req.file) {
-  //   res.json({
-  //     message: "Image uploaded successfully",
-  //     imageUrl: req.file.path,
-  //   });
-  // } else {
-  //   res.status(400).json({ error: "Failed to upload image" });
-  // }
 };
 
 // all food list

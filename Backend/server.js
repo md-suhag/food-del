@@ -4,7 +4,7 @@ import "./config/db.js";
 import foodRouter from "./routes/food.route.js";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
-
+import fileUpload from "express-fileupload";
 dotenv.config();
 
 // app config
@@ -21,6 +21,11 @@ app.options("", cors(corsConfig));
 app.use(express.json());
 
 app.use(cors(corsConfig));
+app.use(
+  fileUpload({
+    useTempFiles: true,
+  })
+);
 
 // api endpoints
 app.use("/api/food", foodRouter);
