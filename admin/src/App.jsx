@@ -8,7 +8,7 @@ import Add from "./pages/Add/Add";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const url = "http://localhost:4000";
+const url = "https://food-del-backend-api.vercel.app";
 
 const App = () => {
   return (
