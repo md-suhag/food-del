@@ -1,4 +1,6 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
 import { v2 as cloudinary } from "cloudinary";
 import {
   addFood,
@@ -34,9 +36,9 @@ import { CloudinaryStorage } from "multer-storage-cloudinary";
 // Configure Cloudinary
 // Configuration
 cloudinary.config({
-  cloud_name: "dmmfypyrw",
-  api_key: "684435616877796",
-  api_secret: "ZvXouoRIEr30oc1zdEHd5EdsybE", // Click 'View Credentials' below to copy your API secret
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 // Configure Cloudinary storage for multer
