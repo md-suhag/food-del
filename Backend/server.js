@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import bodyParser from "body-parser";
 import "./config/db.js";
 import foodRouter from "./routes/food.route.js";
 import dotenv from "dotenv";
@@ -9,6 +10,12 @@ dotenv.config();
 
 // app config
 const app = express();
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
 const port = process.env.PORT || 4000;
 app.use(
   cors({
@@ -29,7 +36,10 @@ app.use("/api/user", userRouter);
 app.get("/", (req, res) => {
   res.send("api is working");
 });
-
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ success: false, message: "Internal Server Error" });
+});
 app.listen(port, () => {
   console.log(`server is running at http://localhost:${port}`);
 });
