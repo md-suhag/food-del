@@ -6,6 +6,7 @@ import foodRouter from "./routes/food.route.js";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
 import fileUpload from "express-fileupload";
+import cartRouter from "./routes/cart.route.js";
 dotenv.config();
 
 // app config
@@ -33,6 +34,8 @@ app.use(
 app.use("/api/food", foodRouter);
 // app.use("/images", express.static("tmp"));
 app.use("/api/user", userRouter);
+app.use("/api/cart", cartRouter);
+
 app.get("/", (req, res) => {
   res.send("api is working");
 });
