@@ -8,7 +8,7 @@ import Add from "./pages/Add/Add";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-const url = "https://food-del-backend-api.vercel.app";
+const url = "https://food-del-backend-zfo1.onrender.com";
 
 const App = () => {
   return (
