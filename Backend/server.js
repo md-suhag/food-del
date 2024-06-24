@@ -5,7 +5,7 @@ import "./config/db.js";
 import foodRouter from "./routes/food.route.js";
 import dotenv from "dotenv";
 import userRouter from "./routes/user.route.js";
-import fileUpload from "express-fileupload";
+
 import cartRouter from "./routes/cart.route.js";
 import orderRouter from "./routes/order.route.js";
 dotenv.config();
@@ -25,15 +25,9 @@ app.use(
   })
 );
 
-app.use(
-  fileUpload({
-    useTempFiles: true,
-  })
-);
-
 // api endpoints
 app.use("/api/food", foodRouter);
-// app.use("/images", express.static("tmp"));
+app.use("/images", express.static("uploads"));
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
