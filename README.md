@@ -14,7 +14,7 @@
 
 #### ADMIN :
 
-- Admin can add more food product in the website dynamatically by admin panel
+- Admin can add more food product in the website dynamically by admin panel
 - Admin can Delete Product of the website.
 - By Admin panel, Admin can see orders details of all user in this website and can change order status.
 
