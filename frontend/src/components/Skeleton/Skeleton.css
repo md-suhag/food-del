@@ -1,0 +1,24 @@
+.skeleton-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  margin-top: 30px;
+  gap: 20px;
+}
+.skeleton-container .card {
+  background-color: rgb(197, 197, 197);
+  border-radius: 10px;
+  height: 40vh;
+  transition: 0.5s;
+  animation: pulse infinite 2s;
+}
+@keyframes pulse {
+  0% {
+    background-color: rgb(238, 238, 238);
+  }
+  50% {
+    background-color: rgb(226, 226, 226);
+  }
+  100% {
+    background-color: rgb(238, 238, 238);
+  }
+}
