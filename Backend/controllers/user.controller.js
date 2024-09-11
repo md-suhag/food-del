@@ -34,7 +34,7 @@ const registerUser = async (req, res) => {
     // checking is user already exits
     const exits = await userModel.findOne({ email });
     if (exits) {
-      return res.json({ success: false, message: "user already exits" });
+      return res.json({ success: false, message: "Error! user already exits" });
     }
     // validating email format and strong password
 
@@ -48,7 +48,7 @@ const registerUser = async (req, res) => {
       return res.json({
         success: false,
         message:
-          "Please enter a strong password. Password length must be greater than 8 character",
+          "Error ! Please enter a strong password. Password length must be greater than 8 character",
       });
     }
 
